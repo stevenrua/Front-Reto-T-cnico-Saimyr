@@ -1,0 +1,10 @@
+<h1>¡Are you sure!</h1>
+<hr>
+<p>You are about to delete the book {{data.name}} <br/>Do you wish to continue</p>
+
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()" color="warn">Cancel</button>
+    <button mat-raised-button (click)="borrar()" color="primary">
+        Yes, delete!
+    </button>
+  </div>

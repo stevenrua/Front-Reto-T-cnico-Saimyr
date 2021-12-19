@@ -1,0 +1,75 @@
+<br>
+<div>    
+    <form [formGroup]="miFormulario" autocomplete="off">
+        <div class="row">
+            <div class="12" style="text-align: center;">
+                <mat-form-field appearance="fill">
+                    <mat-label>Publisher</mat-label>
+                    <input type="text" matInput formControlName="publisher" required />
+                    <div style="text-align: initial">
+                        <span
+                          *ngIf="validarCampo('publisher')"
+                          class="text-danger"
+                          center-mensage
+                          >{{ validatorPublisher }}
+                        </span>
+                      </div>
+                  </mat-form-field>
+            </div>
+            <div style="text-align: center;" class="col-12 operation">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  [disabled]="miFormulario.valid"
+                  style="margin-right: 10px"
+                  (click)="getAllBooks()"
+
+                                  >
+                    List all books
+                </button>
+                <button 
+                mat-raised-button 
+                color="primary" 
+                 [disabled]="miFormulario.invalid"
+                 (click)="getBookByPublisher(miFormulario.value.publisher)"
+                >
+                    Search by publisher
+                </button>
+              </div>
+            
+        </div>        
+    </form>
+</div>
+<hr>
+
+<div style="text-align: center;" *ngIf="books">
+    <h1>{{findByPublisher ? "List of books available by publisher": "List of available books"}}</h1>
+    <table style="margin: 0 auto;" >
+        <thead>
+            <tr>
+                <th >
+                   Name
+                </th>
+                <th >
+                    Actions
+                 </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td  (click)="detailsBook(book)" style="cursor:pointer">
+                    {{book.name}}
+                </td>
+                <td >
+                    <button mat-button color="black" (click)="deleteBook(book)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+</div>
+<div style="text-align: center;" *ngIf="!books">
+    <h1>{{findByPublisher ? "We do not have books from that publisher" : "Empty list"}}</h1>
+</div>
+

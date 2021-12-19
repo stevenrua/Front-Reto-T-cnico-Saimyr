@@ -1,0 +1,43 @@
+<h1>Details</h1>
+<hr>
+<p>Book details {{data.name}}</p>
+<div style="text-align: center;">
+<table  style="margin: 0 auto;" >
+    <thead>
+        <tr>
+            <th >
+               Name
+            </th>
+            <th >
+                Author
+             </th>
+             <th >
+                Publisher
+             </th>
+             <th >
+                Genre
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr >
+            <td>
+                {{data.name}}
+            </td>
+            <td >
+                {{data.author}}
+            </td>
+            <td>
+                {{data.publisher}}
+            </td>
+            <td >
+                {{data.genre}}
+            </td>
+        </tr>
+    </tbody>
+</table>  
+</div>  
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cerrar()" color="warn">Ok</button>
+    
+  </div>

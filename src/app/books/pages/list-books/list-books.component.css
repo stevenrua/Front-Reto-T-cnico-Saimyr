@@ -1,0 +1,4 @@
+.text-danger { color: #FF0000; }
+table,td, th {
+	border: 1px solid black;
+}
